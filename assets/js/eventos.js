@@ -16,8 +16,13 @@ function enviarTweet(){
 
 function contarClicks(){
   contar += 1;
-  var contador = getElementById('contador');
-  contador.innerText= "contador de Clicks " + contar;
-
+  var contador = document.getElementById('contador');
+  contador.innerHTML= "Contador de Clicks: " + contar;
 }
-document.addEventListener('click', contador);
+
+function noCuenta(e){
+  e.stopPropagation();
+}
+document.addEventListener('click', contarClicks);
+nuevoTweet.addEventListener("click", noCuenta);
+enviadoPor.addEventListener("click", noCuenta);
